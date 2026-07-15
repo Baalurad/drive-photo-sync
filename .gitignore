@@ -1,0 +1,12 @@
+# XcodeGen-generated project (regenerated from project.yml, don't commit)
+*.xcodeproj/
+
+# Build artifacts
+build/
+DerivedData/
+Payload/
+*.ipa
+
+# Xcode / macOS
+.DS_Store
+xcuserdata/

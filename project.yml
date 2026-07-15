@@ -1,0 +1,28 @@
+name: DrivePhotoSync
+options:
+  bundleIdPrefix: com.baalurad
+  deploymentTarget:
+    iOS: "16.0"
+
+targets:
+  DrivePhotoSync:
+    type: application
+    platform: iOS
+    sources:
+      - Sources/DrivePhotoSync
+    info:
+      path: Sources/DrivePhotoSync/Info.plist
+      properties:
+        CFBundleDisplayName: Drive Photo Sync
+        UILaunchScreen: {}
+        UIRequiredDeviceCapabilities: [armv7]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.baalurad.drivephotosync
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO
