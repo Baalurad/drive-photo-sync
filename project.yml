@@ -4,18 +4,33 @@ options:
   deploymentTarget:
     iOS: "16.0"
 
+# Замени на свои значения из Google Cloud Console (OAuth Client ID, тип iOS):
+#   GIDClientID       -> Client ID целиком, вида XXXXX.apps.googleusercontent.com
+#   CFBundleURLSchemes -> тот же Client ID в реверснутом виде: com.googleusercontent.apps.XXXXX
+packages:
+  GoogleSignIn-iOS:
+    url: https://github.com/google/GoogleSignIn-iOS
+    from: 9.0.0
+
 targets:
   DrivePhotoSync:
     type: application
     platform: iOS
     sources:
       - Sources/DrivePhotoSync
+    dependencies:
+      - package: GoogleSignIn-iOS
+        product: GoogleSignIn
     info:
       path: Sources/DrivePhotoSync/Info.plist
       properties:
         CFBundleDisplayName: Drive Photo Sync
         UILaunchScreen: {}
         UIRequiredDeviceCapabilities: [armv7]
+        GIDClientID: "REPLACE_ME.apps.googleusercontent.com"
+        CFBundleURLTypes:
+          - CFBundleURLSchemes:
+              - "com.googleusercontent.apps.REPLACE_ME"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.baalurad.drivephotosync
